@@ -3,7 +3,7 @@ provider "vmware" {
   user = "${var.user}"
   password = "${var.passwd}"
 }
-resource "vmware_virtual_machine" "web" {
+resource "vsphere_virtual_machine" "web" {
   name =  "web-1"
   vcpu = 4
   memory = 12096
