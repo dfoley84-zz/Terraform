@@ -1,0 +1,7 @@
+vsphere_user = ""
+vsphere_server = ""
+vsphere_password = ""
+vphere_datacenter = ""
+production_cluster = ""
+cix_gateway = ""
+Web_Template = "" 
