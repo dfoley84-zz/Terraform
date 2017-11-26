@@ -5,5 +5,10 @@ provider "vmware" {
 }
 resource "vmware_virtual_machine" "web" {
   name =  "web-1"
-  image = "web-base"
+  vcpu = 4
+  memory = 12096
+  
+  network_interface {
+    label = "${var.Production}"
+    }
 }
