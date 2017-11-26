@@ -21,7 +21,7 @@ resource "vsphere_virtual_machine" "web" {
 
   network_interface {
     label = "${var.Production}"
-    ipv4_address       = "10.20.30.40"
+    ipv4_address       = ""
     ipv4_prefix_length = "24"
     ipv4_gateway       = "${var.cix_gateway}"
  }
