@@ -7,6 +7,7 @@ provider "vsphere" {
 
 resource "vsphere_folder" "WebFolder" {
   datacenter = "${var.vphere_datacenter}"
+  type = "vm"
   path = "${var.path}"
 }
 resource "vsphere_virtual_machine" "web" {
