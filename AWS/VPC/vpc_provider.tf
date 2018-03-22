@@ -5,7 +5,7 @@ provider "aws" {
 
 # VPC 
 resource "aws_vpc" "Dublin_vpc" {
-  cidr_block = "172.23.0.0/16"
+  cidr_block = "${var.aws_cidr}"
   tags{
       Name = "Dublin_VPC"
   }
