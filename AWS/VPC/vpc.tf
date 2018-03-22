@@ -1,4 +1,4 @@
-
+# Using Terraform AWS Provider to Create a VPC Network and Subnet within AWS
 
 provider "aws"
 {
