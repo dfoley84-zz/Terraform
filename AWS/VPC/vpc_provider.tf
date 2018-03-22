@@ -140,15 +140,14 @@ resource "aws_security_group" "Dublin_private_sg" {
   name = "Dublin_private_sg"
   description = "Used for Private EC2"
   vpc_id = "${aws_vpc.Dublin_vpc.id}"
-}
 
 # Access From VPC
 ingress {
   from_port = 0
   to_port = 0
   protocol = "-1"
-  cidr_blocks = ["${var.vpc_cidr}"]
 }
+
 egress {
   from_port = 0
   to_port = 0
@@ -156,3 +155,4 @@ egress {
    cidr_blocks =["0.0.0.0/0"]
 }
 }
+
