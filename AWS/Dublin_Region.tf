@@ -1,4 +1,4 @@
-#Building Code Environment from Group
+# Creating Region EU-West-1
 
 provider "aws" {
     region = "${var.aws_region_Dublin}"
