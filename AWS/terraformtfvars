@@ -1,0 +1,28 @@
+aws_profile = "Terraform"
+aws_region_Dublin = "eu-west-1"
+aws_region_London = "eu-west-2"
+aws_region_Paris = "eu-west-3"
+JenkinMaster_SG_group = "sg-"
+JenkinSlave_SG_group = "sg-"
+Jenkin_AMI = "ami-3bfab942"
+instance_class = "t2.mirco"
+key_name = " "
+public_key_path = ".pem"
+domain_name = " "
+
+cidrs = {
+    public1 = "0.0.1.0/24"
+    public2 = "0.0.2.0/24"
+    public3 = "0.0.3.0/24"
+    private1 = "0.0.10.0/24"
+    private2 = "0.0.20.0/24"
+    private3 = "0.0.40.0/24"
+    rds1 = "0.0.50.0/24"
+    rds2 = "0.0.60.0/24"
+    rds3 = "0.0.70.0/24"
+}
+
+SP_cidrs = {
+    work_ipaddress = "/32"
+    home_ipaddress = "/32" 
+}
