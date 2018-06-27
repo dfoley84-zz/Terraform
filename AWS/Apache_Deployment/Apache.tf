@@ -66,11 +66,8 @@ resource "aws_default_route_table" "Private_Route_Table" {
 }
 
 # NAT for Private Subnet
-resource "aws_nat_gateway" "Private_NAT" {
-  //other arguments
-
-  depends_on = ["aws_internet_gateway.gw"]
-}
+##resource "aws_nat_gateway" "Private_NAT" {
+# depends_on = ["aws_internet_gateway.gw"]
 
 # Apache Public Subnet 1A
 resource "aws_subnet" "Public_Subnet_1A" {
@@ -202,10 +199,9 @@ data "aws_ami" "server_ami" {
 }
 
 resource "aws_instance" "bastion_ec2" {
-  most_recent                 = true
   count                       = 2
-  ami                         = "${data.aws_ami.server_ami.id}"
   instance_type               = "${var.instance_class}"
+  ami                         = "${data.aws_ami.server_ami.id}"
   key_name                    = "${var.key_name}"
   subnet_id                   = "${var.aws_subnet}"
   associate_public_ip_address = true
