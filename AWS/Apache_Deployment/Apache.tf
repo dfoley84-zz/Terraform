@@ -223,8 +223,7 @@ resource "aws_instance" "bastion_ec2" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo yum install httpd -y",
-      "sudo service httpd start",
+      "sudo yum install update -y",
     ]
   }
 }
