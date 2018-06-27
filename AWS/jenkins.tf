@@ -14,7 +14,7 @@ resource "aws_instance" "Ansible" {
   tags {
         Name = "Ansible"
         }
-}# End of AWS_Instancex
+}
 
 
 resource "aws_instance" "Jenkin" { 
