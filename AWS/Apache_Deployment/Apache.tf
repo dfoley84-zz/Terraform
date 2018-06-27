@@ -133,7 +133,7 @@ resource "aws_route_table_association" "web" {
   route_table_id = "${aws_route_table.Private_Route_Table.id}"
 }
 
-# Public Security Groups ß
+# Public Security Groups 
 
 resource "aws_security_group" "Bastion_SG" {
   name        = "Bastion_SG"
@@ -156,6 +156,7 @@ resource "aws_security_group" "Bastion_SG" {
   }
 }
 
+# Private  Security Groups 
 resource "aws_security_group" "Private_Web" {
   name        = "Dublin_public_SG"
   description = "Used for the ELB for public Access"
@@ -186,4 +187,44 @@ resource "aws_security_group" "Private_Web" {
 }
 
 # ---------- EC2 Instance ------------------
+data "aws_ami" "server_ami" {
+  most_recent = true
 
+  filter {
+    name   = "owner-alias"
+    values = ["amazon"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["amzn-ami-hvm*-x86_64-gp2"]
+  }
+}
+
+resource "aws_instance" "bastion_ec2" {
+  most_recent                 = true
+  count                       = 2
+  ami                         = "${data.aws_ami.server_ami.id}"
+  instance_type               = "${var.instance_class}"
+  key_name                    = "${var.key_name}"
+  subnet_id                   = "${var.aws_subnet}"
+  associate_public_ip_address = true
+  security_groups             = ["${var.security_group}", "${aws_security_group.httpd-sg.id}"]
+  key_name                    = "${var.key_name}"
+
+  tags {
+    name = "Bastion Host"
+  }
+
+  connection {
+    user        = "ec2-user"
+    private_key = "${file(var.private_key)}"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum install httpd -y",
+      "sudo service httpd start",
+    ]
+  }
+}

@@ -1,22 +1,14 @@
 aws_profile = "Terraform"
 
-apache_bucket_name = "apache-s3-bucket"
-
 aws_region = "eu-west-1"
-
-JenkinMaster_SG_group = "sg-"
-
-JenkinSlave_SG_group = "sg-"
-
-Jenkin_AMI = "ami-3bfab942"
 
 instance_class = "t2.mirco"
 
-key_name = " "
+apache_bucket_name = "apache-s3-bucket"
 
-public_key_path = ".pem"
+key_name = "Apache"
 
-domain_name = " "
+public_key_path = "/etc/bastion.pem"
 
 cidrs = {
   public1  = "213.127.10.0/24"

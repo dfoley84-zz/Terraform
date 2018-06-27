@@ -1,20 +1,9 @@
 variable "apache_bucket_name" {}
 variable "aws_region" {}
-
-
-
-
-
-
-
-
-
-variable "Apache" {}
-variable "Bastion" {}
-variable "instance_class" {}
 variable "key_name" {}
-variable "domain_name" {}
 variable "public_key_path" {}
+variable "instance_class" {}
+
 data "aws_availability_zones" "available" {}
 
 variable "cidrs" {
