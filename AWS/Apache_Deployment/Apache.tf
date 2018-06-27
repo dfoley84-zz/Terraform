@@ -199,13 +199,12 @@ data "aws_ami" "server_ami" {
 }
 
 resource "aws_instance" "bastion_ec2" {
-  count                       = 2
   instance_type               = "${var.instance_class}"
   ami                         = "${data.aws_ami.server_ami.id}"
   key_name                    = "${var.key_name}"
-  subnet_id                   = "${var.aws_subnet}"
+  subnet_id                   = "${aws_subnet.Public_Subnet_1A.id}"
   associate_public_ip_address = true
-  security_groups             = ["${var.security_group}", "${aws_security_group.httpd-sg.id}"]
+  vpc_security_group_ids      = "${aws_security_group.Bastion_SG.id}"
   key_name                    = "${var.key_name}"
 
   tags {
