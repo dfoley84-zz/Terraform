@@ -1,6 +1,14 @@
-variable "aws_profile" {}
-variable "aws_region_Public" {}
-variable "aws_region_Private" {}
+variable "apache_bucket_name" {}
+variable "aws_region" {}
+
+
+
+
+
+
+
+
+
 variable "Apache" {}
 variable "Bastion" {}
 variable "instance_class" {}
