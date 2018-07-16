@@ -3,21 +3,6 @@ provider "aws" {
   profile = "${var.aws_profile}"
 }
 
-# ---------- S3 Bucket -----------------
-resource "random_id" "bucket_id" {
-  byte_length = 3
-}
-
-resource "aws_s3_bucket" "S3 Bucket" {
-  bucket        = "${var.apache_bucket_name}-${random_id.bucket_id.dec}"
-  acl           = "private"
-  force_destroy = true
-
-  tags {
-    Name = "S3 Apache Bucket"
-  }
-}
-
 # ---------- AWS VPC ------------------
 
 data "aws_availability_zone" "vpc_zone" {}
