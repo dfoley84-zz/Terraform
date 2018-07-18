@@ -8,7 +8,7 @@ JDE_prefix = "VDI-W10JDE"
 SDT_prefix = "SDT-SDTAUTO"
 
 
-vphere_datacenter = "Laya"
+vphere_datacenter = " "
 development_cluster = "Cluster_Dev"
 production_cluster = "Cluster_Prod"
 vRealizeFolder = "VRM"
