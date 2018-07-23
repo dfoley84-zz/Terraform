@@ -5,3 +5,4 @@ GoogleCloud/.DS_Store
 Docker/terraform.tfstate.backup
 Docker/terraform.tfstate
 *.tfstate
+*.tfvars
