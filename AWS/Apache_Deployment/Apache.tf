@@ -3,6 +3,21 @@ provider "aws" {
   profile = "${var.aws_profile}"
 }
 
+# ---------- S3 Bucket -----------------
+resource "random_id" "bucket_id" {
+  byte_length = 3
+}
+
+resource "aws_s3_bucket" "S3 Bucket" {
+  bucket        = "${var.apache_bucket_name}-${random_id.bucket_id.dec}"
+  acl           = "private"
+  force_destroy = true
+
+  tags {
+    Name = "S3 Apache Bucket"
+  }
+}
+
 # ---------- AWS VPC ------------------
 
 data "aws_availability_zone" "vpc_zone" {}
@@ -169,6 +184,11 @@ resource "aws_security_group" "Private_Web" {
 }
 
 # ---------- EC2 Instance ------------------
+data "template_file" "salt_minion" {
+  count    = 2
+  template = "${file("${path.module}/salt.tpl")}"
+}
+
 data "aws_ami" "server_ami" {
   most_recent = true
 
@@ -184,12 +204,13 @@ data "aws_ami" "server_ami" {
 }
 
 resource "aws_instance" "bastion_ec2" {
+  count                       = 2
   instance_type               = "${var.instance_class}"
   ami                         = "${data.aws_ami.server_ami.id}"
   key_name                    = "${var.key_name}"
-  subnet_id                   = "${aws_subnet.Public_Subnet_1A.id}"
+  subnet_id                   = "${var.aws_subnet}"
   associate_public_ip_address = true
-  vpc_security_group_ids      = "${aws_security_group.Bastion_SG.id}"
+  security_groups             = ["${var.security_group}", "${aws_security_group.httpd-sg.id}"]
   key_name                    = "${var.key_name}"
 
   tags {
@@ -200,10 +221,66 @@ resource "aws_instance" "bastion_ec2" {
     user        = "ec2-user"
     private_key = "${file(var.private_key)}"
   }
+}
 
-  provisioner "remote-exec" {
-    inline = [
-      "sudo yum install update -y",
-    ]
+
+resource "aws_instance" "Jenkins" {
+  count                       = 2
+  instance_type               = "${var.instance_class}"
+  ami                         = "${data.aws_ami.server_ami.id}"
+  key_name                    = "${var.key_name}"
+  subnet_id                   = "${var.aws_subnet_Jenkins}"
+  associate_public_ip_address = false
+  security_groups             = "${var.security_group}"
+  key_name                    = "${var.key_name}"
+
+  tags {
+    name = "Jenkins Server"
+  }
+
+  connection {
+    user  = "ec2-user"
+    private_key = "${file(var.private_key)}"
   }
 }
+
+
+#ELB
+resource "aws_elb" "Jenkins_ELB" {
+  name               = "Jenkins-elb"
+  availability_zones = ["${data.aws_availability_zones.available.names[0]}","${data.aws_availability_zones.available.names[1]}"]
+
+listener{
+    instance_port     = 80
+    instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
+
+}
+
+ health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:80/"
+    interval            = 30
+  }
+
+  instances                   = ["${}"]
+  cross_zone_load_balancing   = true
+  idle_timeout                = 400
+  connection_draining         = true
+  connection_draining_timeout = 400
+
+
+  
+
+#Route 53 Jenkins
+resource "aws_route53_record" "jenkinsNode" {
+  zone_id = "${aws_route53_record.primary.zone_id}"
+  name = "www.Jenkins.<HostDomain>.eu"
+  type = "A"
+  ttl = "300"
+  records = ["${aws_eip.lb.Jenkins_ELB}"]
+}
+
