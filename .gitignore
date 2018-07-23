@@ -1,2 +1,7 @@
 
 GoogleCloud/.DS_Store
+*.tfstate
+*.info
+Docker/terraform.tfstate.backup
+Docker/terraform.tfstate
+*.tfstate

@@ -11,3 +11,5 @@ variable "cidrs" {
 variable "SP_cidrs" {
   type = "map"
 }
+
+variable "work_ipaddress" {}
