@@ -12,3 +12,9 @@ variable "SP_cidrs" {
 variable "cidrs" {
   type = "map"
 }
+
+variable "domain_name" {}
+variable "principal" {}
+variable "key_name" {}
+variable "Jenkin_AMI" {}
+variable "jenkins_instance_class" {}

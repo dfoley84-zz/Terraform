@@ -6,3 +6,6 @@ Docker/terraform.tfstate.backup
 Docker/terraform.tfstate
 *.tfstate
 *.tfvars
+AWS/Jenkins Deployment/terraform.tfvars
+AWS/Jenkins Deployment/userdata/endpoint.tpl
+AWS/Jenkins Deployment/userdata/policy.tpl

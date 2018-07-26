@@ -15,3 +15,13 @@ SP_cidrs = {
   home = "109.255.202.101/32"
   work = "109.255.202.102/32"
 }
+
+domain_name = "doggywalky"
+
+principal = "*"
+
+key_name = "SaltStack"
+
+Jenkin_AMI = "ami-466768ac"
+
+jenkins_instance_class = "t2.mirco"

@@ -72,6 +72,11 @@ resource "aws_route_table" "Public_Route_Table" {
 resource "aws_default_route_table" "Private_Route_Table" {
   default_route_table_id = "${aws_vpc.VPC.default_route_table_id}"
 
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = "${aws_nat_gateway.Private_NAT.id}"
+  }
+
   tags {
     Name = "Private Route"
   }
@@ -221,5 +226,70 @@ resource "aws_security_group" "Private_Web" {
   }
 }
 
-# TO - DO Route 53 GoDaddy Domain 
+# Endpoint 
+#data "template_file" "S3_endpoint_policy" {
+#template = "${file(userdata/endpoint.tpl)}"
+
+# vars {
+#  Principal = "${element(var.principal)}"
+#}}
+
+resource "aws_vpc_endpoint" "S3_Endpoint" {
+  vpc_id       = "${aws_vpc.VPC.id}"
+  service_name = "com.amazonaws.${var.aws_region}.s3"
+
+  route_table_ids = ["${aws_vpc.VPC.main_route_table_id}",
+    "${aws_route_table.Public_Route_Table.id}",
+  ]
+}
+
+# S3 Bucket
+resource "random_id" "random" {
+  byte_length = 6
+}
+
+resource "aws_s3_bucket" "S3Bucket" {
+  bucket        = "${var.domain_name}_${random_id.random.dec}"
+  acl           = "private"
+  force_destroy = true
+
+  tags {
+    Name = "S3 Ansible Bucket"
+  }
+}
+
+# EC2 Instance
+resource "aws_instance" "Jenkins" {
+  ami             = "${var.Jenkin_AMI}"
+  instance_type   = "${var.jenkins_instance_class}"
+  key_name        = "${var.key_name}"
+  subnet_id       = "${aws_subnet.Private_Subnet_1C.id}"
+  security_groups = ["${aws_security_group.Jenkins_Security_Group.id}"]
+
+  tags {
+    name = "Jenkins Master"
+  }
+
+  provisioner "local-exec" {
+    command = <<EOD
+    cat <<EOF > aws_hosts
+    [jenkins]
+    ${aws_instance.Jenkins.public_ip}
+    [jenkins:vars]
+    s3code=${aws_s3_bucket.S3Bucket.bucket_domain_name}
+    domain=${var.domain_name}
+    EOF
+    EOD
+  }
+
+  provisioner "local-exec" {
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.Jenkins.id} && ansible-playbook -i aws_hosts wordpress.yml"
+  }
+}
+
+# TO - DO
+# Auto Scale
+# ELB 
+# FT For Jenkins  
+# Route 53 GoDaddy Domain 
 
