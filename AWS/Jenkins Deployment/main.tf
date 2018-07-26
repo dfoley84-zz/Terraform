@@ -72,11 +72,14 @@ resource "aws_route_table" "Public_Route_Table" {
 resource "aws_default_route_table" "Private_Route_Table" {
   default_route_table_id = "${aws_vpc.VPC.default_route_table_id}"
 
+<<<<<<< HEAD
   route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = "${aws_nat_gateway.Private_NAT.id}"
   }
 
+=======
+>>>>>>> 1e39c776703b7d56d1bba22b92d619bff8ae6792
   tags {
     Name = "Private Route"
   }
@@ -226,6 +229,7 @@ resource "aws_security_group" "Private_Web" {
   }
 }
 
+<<<<<<< HEAD
 # Endpoint 
 #data "template_file" "S3_endpoint_policy" {
 #template = "${file(userdata/endpoint.tpl)}"
@@ -292,4 +296,7 @@ resource "aws_instance" "Jenkins" {
 # ELB 
 # FT For Jenkins  
 # Route 53 GoDaddy Domain 
+=======
+# TO - DO Route 53 GoDaddy Domain 
+>>>>>>> 1e39c776703b7d56d1bba22b92d619bff8ae6792
 
