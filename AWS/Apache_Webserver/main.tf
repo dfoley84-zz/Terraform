@@ -315,7 +315,7 @@ resource "aws_elb" "Apache" {
 #---------------------- Route 53 --------------------------------------------
 resource "aws_route53_record" "Jenkins" {
   zone_id = "${aws_route53_zone.primary.zone_id}"
-  name    = "jenkins.doggywalky.eu"
+  name    = "jenkins.<DOMAIN>.eu"
   type    = "A"
   ttl     = "300"
   records = ["${aws_eip.lb.public_ip}"]
