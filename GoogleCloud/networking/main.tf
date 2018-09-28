@@ -62,7 +62,7 @@ resource "google_compute_firewall" "tomcat" {
     protocol = "tcp"
     ports    = ["8080"]
   }
-  source_ranges = ["172.27.10.0/24"]
+  source_ranges = ["${var.local_ipaddress}"]
 }
 
 resource "google_compute_firewall" "vnc" {
@@ -75,5 +75,5 @@ resource "google_compute_firewall" "vnc" {
     protocol = "tcp"
     ports    = ["5901"]
   }
-  source_ranges = ["172.27.10.0/24"]
+  source_ranges = ["${var.local_ipaddress}"]
 }
