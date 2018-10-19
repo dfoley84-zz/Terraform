@@ -44,7 +44,7 @@ esource "kubernetes_replication_controller" "nginx" {
 
 resource "kubernetes_service" "nginxservice" {
   metadata {
-    name = "nginx1"
+    name = "test-nginx"
   }
   spec {
     selector {
