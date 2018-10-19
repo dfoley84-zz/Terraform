@@ -54,4 +54,6 @@ resource "kubernetes_service" "nginxservice" {
       port = 30005
       target_port = 81
     }
+     type = "NodePort"
   }
+}
