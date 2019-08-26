@@ -81,28 +81,42 @@ resource "aws_route_table_association" "wp_private2_assoc" {
 
 #Security groups
 
+variable "public_ports" {
+  default = [
+    {
+      from_port = "22",
+      to_port = "22"
+    },
+      {
+      from_port = "80",
+      to_port = "80"
+    },
+      {
+      from_port = "443",
+      to_port = "443"
+    },
+  ]
+}
+
 resource "aws_security_group" "wp_dev_sg" {
   name        = "wp_dev_sg"
   description = "Used for access to the dev instance"
   vpc_id      = "${aws_vpc.wp_vpc.id}"
 
-  #SSH
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["${var.localip}"]
+  dynamic "ingress" {
+    for_each = [ for s in var.public_ports: 
+    {
+      from_port = s.from_port
+      to_port = s.to_port
+    }]
+    content {
+      from_port   = ingress.value.from_port
+      to_port     = ingress.value.to_port
+      protocol    = "tcp"
+      cidr_blocks = [var.localip]
+    }
   }
 
-  #HTTP
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["${var.localip}"]
-  }
   egress {
     from_port   = 0
     to_port     = 0
@@ -110,6 +124,14 @@ resource "aws_security_group" "wp_dev_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+output "ingress_port_mapping" {
+  value = {
+    for ingress in aws_security_group.wp_dev_sg.ingress:
+    format("From %d", ingress.from_port) => format("To %d", ingress.to_port)
+  }
+}
+
 
 #Public Security group
 
