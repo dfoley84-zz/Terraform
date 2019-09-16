@@ -33,7 +33,7 @@ resource "aws_instance" "server" {
   count         = "${var.instance_count}"
   instance_type = "${var.instance_type}"
   ami           = "${data.aws_ami.server_ami.id}"
-  placement_group = "${var.aws_placement_group.cluster.id}"
+  placement_group = "${aws_placement_group.cluster.id}"
   tags {
     Name = "jenkins-${count.index +1}"
   }
