@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = "${file("playground-s-11-138e5f-ff8ad78bc7ee.json")}"
+  credentials = "${file(".json")}"
   project     = "${var.project_name}"
 }
 
