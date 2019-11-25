@@ -64,16 +64,22 @@ variable "log_config_error" {
     }
 }
 
-cidrs = {
-  Belgium   = "10.0.1.0/24"
-  London    = "10.0.2.0/24"
-  Frankfurt = "10.0.3.0/24"
-  Eemshaven = "10.0.4.0/24"
-  Zurich    = "10.0.5.0/24"
+variable "cidrs" {
+  type = "map" 
+  default = {
+      Belgium   = "10.0.1.0/24"
+      London    = "10.0.2.0/24"
+      Frankfurt = "10.0.3.0/24"
+     Eemshaven = "10.0.4.0/24"
+     Zurich    = "10.0.5.0/24"
+  }
 }
 
-local_cidrs = {
-  IE_Office = "0.0.0.0/0"
-  UK_Office = "0.0.0.0/0"
-  DE_Office = "0.0.0.0/0"
+variable "local_cidrs" {
+  type = "map" 
+  default = {
+      IE_Office = "0.0.0.0/0"
+      UK_Office = "0.0.0.0/0"
+      DE_Office = "0.0.0.0/0"
+  }
 }
