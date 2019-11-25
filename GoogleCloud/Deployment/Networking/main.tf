@@ -1,6 +1,6 @@
 # Create GCP VPC
 provider "google" {
-  #credentials = "${file("playground-s-11-8d9435-3bdb2307bf78.json")}"
+  #credentials = "${file(".json")}"
   project     = "${var.project_name}"
 }
 
