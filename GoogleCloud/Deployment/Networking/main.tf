@@ -49,6 +49,7 @@ resource "google_compute_router_nat" "nat" {
 resource "google_compute_firewall" "firewall" {
   name    = "${var.vpc_name}-allow-ssh"
   network = "${google_compute_network.vpc.name}"
+  source_tags = ["bastion_host"]
   allow {
     protocol = "icmp"
   }
