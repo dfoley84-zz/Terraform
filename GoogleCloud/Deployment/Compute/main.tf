@@ -38,6 +38,7 @@ resource "google_compute_instance" "kibana" {
    network_interface {
     subnetwork = "${var.subnet_name}"
   }
+    metadata_startup_script = "${file("startup.sh")}"
 }
 
 resource "google_compute_instance" "elasticsearch" {
