@@ -20,6 +20,7 @@ resource "google_compute_instance" "bastion" {
         //External IP
     } 
   }
+    metadata_startup_script = "${file("startup.sh")}"
 }
 
 resource "google_compute_instance" "kibana" {
@@ -54,4 +55,5 @@ resource "google_compute_instance" "elasticsearch" {
    network_interface {
     subnetwork = "${var.subnet_name}"
   }
+    metadata_startup_script = "${file("startup.sh")}"
 }
