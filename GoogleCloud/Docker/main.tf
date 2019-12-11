@@ -52,6 +52,17 @@ resource "google_compute_firewall" "https" {
   source_ranges = ["0.0.0.0/0"]
 }
 
+
+resource "google_compute_firewall" "Jenkins" {
+  name    = "${var.vpc_name}-allow-Jenkins"
+  network = "${google_compute_network.vpc.name}"
+  allow {
+    protocol = "tcp"
+    ports    = ["8080"]
+  }
+  source_ranges = ["0.0.0.0/0"]
+}
+
 resource "google_compute_firewall" "tomcat" {
   name    = "${var.vpc_name}-allow-tomcat"
   network = "${google_compute_network.vpc.name}"
