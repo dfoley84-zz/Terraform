@@ -4,7 +4,7 @@
 provider "aws" {
     access_key = "${var.aws_access_key}"
     secret_key = "${var.aws_secret_key}"
-    region = "${var.aws_region_EU_WEST_1A}"
+    region = "us-east1"
 }
 
 # Resrouces 
