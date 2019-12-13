@@ -5,7 +5,7 @@ deploy:
 
 # Install terraform
 install:
-  - curl -sLo /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.8.8/terraform_0.8.8_linux_amd64.zip
+  - curl -sLo /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip
   - unzip /tmp/terraform.zip -d /tmp
   - mkdir ~/bin
   - mv /tmp/terraform ~/bin
