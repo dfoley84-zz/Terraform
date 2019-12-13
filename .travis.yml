@@ -1,12 +1,9 @@
-deploy:
-  provider: heroku
-  api_key:
-    secure: ""
-
-# Install terraform
 install:
   - curl -sLo /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip
   - unzip /tmp/terraform.zip -d /tmp
-  - mkdir ~/bin
+  #- mkdir ~/bin
   - mv /tmp/terraform ~/bin
   - export PATH="~/bin:$PATH"
+ 
+Terraform_Init:
+  - terraform init ./terraform
