@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="33301266-d33d-4b66-b153-136288da3a0f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/AWS/Prod_Dev/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AWS/Prod_Dev/testing/instance.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AWS/Prod_Dev/testing/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AWS/Prod_Dev/testing/outputs.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AWS/Prod_Dev/testing/variables.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AWS/Prod_Dev/variables.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AWS/StagingEnvironment/Network/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AWS/StagingEnvironment/Network/variables.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vSphere/create_cluster.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AWS/DockerSwarm/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/AWS/DockerSwarm/main.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AWS/Dublin_Region.tf" beforeDir="false" afterPath="$PROJECT_DIR$/AWS/Dublin_Region.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AWS/Jenkins Deployment/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/AWS/Jenkins Deployment/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleCloud/Deployment/GKE/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleCloud/Deployment/GKE/main.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleCloud/Deployment/Networking/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleCloud/Deployment/Networking/main.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoogleCloud/Deployment/Networking/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/GoogleCloud/Deployment/Networking/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vSphere/terraform.tfvars" beforeDir="false" afterPath="$PROJECT_DIR$/vSphere/terraform.tfvars" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1djjx2hMUEhWGuSJNrywZK7cOYm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Flask-vmware-view" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="Terraform.Plan directory CA1">
+    <configuration name="Apply directory testing" type="#org.intellij.plugins.hcl.terraform.run.TerraformConfigurationType" factoryName="Terraform Apply" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="envs">
+        <map />
+      </option>
+      <option name="passParentEnvs" value="true" />
+      <option name="programParameters" value="apply" />
+      <option name="workingDirectory" value="C:\github\Terraform\AWS\Prod_Dev\testing" />
+      <option name="PROGRAM_PARAMETERS" value="apply" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/AWS/Prod_Dev/testing" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Plan directory CA1" type="#org.intellij.plugins.hcl.terraform.run.TerraformConfigurationType" factoryName="Terraform Plan" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="envs">
+        <map />
+      </option>
+      <option name="passParentEnvs" value="true" />
+      <option name="programParameters" value="plan" />
+      <option name="workingDirectory" value="C:\github\Terraform\CA1" />
+      <option name="PROGRAM_PARAMETERS" value="plan" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/CA1" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33301266-d33d-4b66-b153-136288da3a0f" name="Default Changelist" comment="" />
+      <created>1592945639362</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592945639362</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="747" y="244" key="FileChooserDialogImpl" timestamp="1612817655472">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="747" y="244" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1612817655472" />
+    <state width="1921" height="288" key="GridCell.Tab.0.bottom" timestamp="1612613569070">
+      <screen x="2560" y="111" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/-1920.-94.1920.1040/0.0.1920.1040@-1920.-94.1920.1040" timestamp="1612308262367" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/2560.111.1920.1040/0.0.2560.1400/4480.205.1920.1040@0.0.2560.1400" timestamp="1612429685449" />
+    <state width="1921" height="288" key="GridCell.Tab.0.bottom/2560.111.1920.1040/0.0.2560.1400@2560.111.1920.1040" timestamp="1612613569070" />
+    <state width="1921" height="288" key="GridCell.Tab.0.center" timestamp="1612613569070">
+      <screen x="2560" y="111" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.center/-1920.-94.1920.1040/0.0.1920.1040@-1920.-94.1920.1040" timestamp="1612308262366" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center/2560.111.1920.1040/0.0.2560.1400/4480.205.1920.1040@0.0.2560.1400" timestamp="1612429685449" />
+    <state width="1921" height="288" key="GridCell.Tab.0.center/2560.111.1920.1040/0.0.2560.1400@2560.111.1920.1040" timestamp="1612613569070" />
+    <state width="1921" height="288" key="GridCell.Tab.0.left" timestamp="1612613569070">
+      <screen x="2560" y="111" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.left/-1920.-94.1920.1040/0.0.1920.1040@-1920.-94.1920.1040" timestamp="1612308262366" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left/2560.111.1920.1040/0.0.2560.1400/4480.205.1920.1040@0.0.2560.1400" timestamp="1612429685448" />
+    <state width="1921" height="288" key="GridCell.Tab.0.left/2560.111.1920.1040/0.0.2560.1400@2560.111.1920.1040" timestamp="1612613569070" />
+    <state width="1921" height="288" key="GridCell.Tab.0.right" timestamp="1612613569070">
+      <screen x="2560" y="111" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.right/-1920.-94.1920.1040/0.0.1920.1040@-1920.-94.1920.1040" timestamp="1612308262367" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/2560.111.1920.1040/0.0.2560.1400/4480.205.1920.1040@0.0.2560.1400" timestamp="1612429685449" />
+    <state width="1921" height="288" key="GridCell.Tab.0.right/2560.111.1920.1040/0.0.2560.1400@2560.111.1920.1040" timestamp="1612613569070" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1613329599089">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/-1920.-94.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1613329599089" />
+    <state x="662" y="320" key="new project wizard" timestamp="1612300202567">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="662" y="320" key="new project wizard/2560.111.1920.1040/4480.205.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1612300202567" />
+    <state x="936" y="330" key="run.anything.popup" timestamp="1612435650519">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="936" y="330" key="run.anything.popup/2560.111.1920.1040/0.0.2560.1400/4480.205.1920.1040@0.0.2560.1400" timestamp="1612435650519" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1612367340219">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.111.1920.1040/0.0.2560.1400/4480.205.1920.1040@0.0.2560.1400" timestamp="1612367340219" />
+  </component>
+</project>
